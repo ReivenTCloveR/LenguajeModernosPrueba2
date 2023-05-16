@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" >
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Aplicacion2"
+        tools:ignore="ExtraText"
+        tools:targetApi="31" >
+
+        <activity
+            android:name=".Setting.SettingsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_settings" />
+        <activity
+            android:name=".Objetos.ListaProducto.ShoppingListAddActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
+        <activity
+            android:name=".Objetos.Productos.ProductoAddActivity"
+            android:exported="false"
+            android:parentActivityName=".Clases.ListProductActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Clases.ListProductActivity" />
+        </activity>
+
+        <activity
+            android:name=".Objetos.Productos.ProductoViewActivity"
+            android:exported="false" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Clases.ListProductActivity" />
+        </activity>
+        <activity
+            android:name=".Clases.InterestActivity"
+            android:exported="false" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainUsuarioActivity" />
+        </activity>
+        <activity
+            android:name=".Clases.RememberActivity"
+            android:exported="false" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainUsuarioActivity" />
+        </activity>
+        <activity
+            android:name=".Clases.ListProductActivity"
+            android:exported="false" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainUsuarioActivity" />
+        </activity>
+        <activity
+            android:name=".Clases.ShoppingListActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
+        <activity
+            android:name=".MainUsuarioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LogActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

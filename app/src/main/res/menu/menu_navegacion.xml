@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/Configuraciones"
+        android:title="@string/title_activity_settings" />
+    <item android:id="@+id/AddList"
+        android:title="@string/NewList"/>
+    <item android:id="@+id/PrudctList"
+        android:title="@string/listProduct"/>
+</menu>

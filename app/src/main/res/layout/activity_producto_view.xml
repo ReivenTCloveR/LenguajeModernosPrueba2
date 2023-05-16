@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    android:orientation="vertical"
+    tools:context=".Objetos.Productos.ProductoViewActivity">
+
+    <TextView
+        android:id="@+id/viewProduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:text="@string/tvProduct" />
+
+    <EditText
+        android:id="@+id/ettProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:ems="10"
+        android:autofillHints="@string/ettProduct"
+        android:hint="@string/ettProduct"
+        android:inputType="textPersonName"
+        android:labelFor="@+id/tvProduct"
+        android:textSize="20sp"
+        />
+
+    <TextView
+        android:id="@+id/viewPrecio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:text="@string/tvPrecio" />
+
+    <EditText
+        android:id="@+id/ettPrecio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:ems="10"
+        android:autofillHints="@string/ettPrecio"
+        android:hint="@string/ettPrecio"
+        android:inputType="number"
+        android:labelFor="@+id/cantidadProducots"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.75"/>
+
+    <TextView
+        android:id="@+id/viewCantidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:text="@string/tvCantidad" />
+
+    <EditText
+        android:id="@+id/ettCantidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:ems="10"
+        android:autofillHints="@string/ettCantidad"
+        android:hint="@string/ettCantidad"
+        android:inputType="number"
+        android:labelFor="@+id/tvCantidad"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/viewUbicacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:text="@string/tvUbicacion" />
+
+    <EditText
+        android:id="@+id/ettUbicacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:autofillHints="@string/ettUbicacion"
+        android:ems="10"
+        android:hint="@string/ettUbicacion"
+        android:inputType="textPersonName"
+        android:labelFor="@id/viewCantidad"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/viewFechaVencimiento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:text="@string/tvTipoPoducto" />
+
+    <EditText
+        android:id="@+id/ettTipoProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:autofillHints="@string/ettUbicacion"
+        android:ems="10"
+        android:hint="@string/ettTipoPoducto"
+        android:inputType="textPersonName"
+        android:labelFor="@id/viewFechaVencimiento"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnGuardar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"
+            android:text="@string/btnSave" />
+
+        <Button
+            android:id="@+id/btnDeshacer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:text="@string/btnDeshacer" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|center_horizontal|center_vertical"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="50dp"
+        android:gravity="center|center_vertical"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/imgbtnDelet"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/button_circle"
+            android:contentDescription="@string/btnDelete"
+            android:contextClickable="false"
+            app:srcCompat="@drawable/delete" />
+
+        <ImageButton
+            android:id="@+id/imgbtnEdit"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="0dp"
+            android:background="@drawable/button_circle"
+            android:contentDescription="@string/btnEdit"
+            app:srcCompat="@drawable/edit" />
+    </LinearLayout>
+
+
+</LinearLayout>

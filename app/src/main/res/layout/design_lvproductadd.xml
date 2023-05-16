@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="3dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/NombreLista"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/ettProduct"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="NestedWeights" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvcantidadComprar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="@string/inStock"
+            tools:ignore="NestedWeights" />
+
+        <EditText
+            android:id="@+id/etCantidadComprar"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_weight="0"
+            android:autofillHints="@string/valor0"
+            android:ems="5"
+            android:gravity="center"
+            android:hint="@string/valor0"
+            android:inputType="number"
+            android:labelFor="@+id/tvcantidadComprar"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:text="@string/valor0"
+            android:textSize="14sp"
+            android:enabled="false"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>

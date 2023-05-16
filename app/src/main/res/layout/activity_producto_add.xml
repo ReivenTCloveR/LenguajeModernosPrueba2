@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    android:orientation="vertical"
+    tools:context=".Objetos.Productos.ProductoAddActivity">
+
+    <TextView
+        android:id="@+id/viewProduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:text="@string/tvProduct" />
+
+    <EditText
+        android:id="@+id/ettProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:autofillHints="@string/ettProduct"
+        android:ems="10"
+        android:hint="@string/ettProduct"
+        android:inputType="textPersonName"
+        android:labelFor="@+id/tvProduct"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/viewPrecio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:text="@string/tvPrecio" />
+
+    <EditText
+        android:id="@+id/ettPrecio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:autofillHints="@string/ettPrecio"
+        android:ems="10"
+        android:hint="@string/ettPrecio"
+        android:inputType="number"
+        android:labelFor="@+id/cantidadProducots"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.75" />
+
+    <TextView
+        android:id="@+id/viewCantidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:text="@string/tvCantidad" />
+
+    <EditText
+        android:id="@+id/ettCantidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:autofillHints="@string/ettCantidad"
+        android:ems="10"
+        android:hint="@string/ettCantidad"
+        android:inputType="number"
+        android:labelFor="@+id/tvCantidad"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/viewUbicacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:text="@string/tvUbicacion" />
+
+    <EditText
+        android:id="@+id/ettUbicacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:autofillHints="@string/ettUbicacion"
+        android:ems="10"
+        android:hint="@string/ettUbicacion"
+        android:inputType="textPersonName"
+        android:labelFor="@id/viewCantidad"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/viewTipoProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:text="@string/tvTipoPoducto" />
+
+    <EditText
+        android:id="@+id/ettTipoProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:autofillHints="@string/ettTipoPoducto"
+        android:ems="10"
+        android:hint="@string/ettTipoPoducto"
+        android:inputType="textPersonName"
+        android:labelFor="@id/viewTipoProducto"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btnAddNewProduct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
+        android:onClick="AñadirProducto"
+        android:text="@string/btnAddtxt" />
+
+</LinearLayout>
+
+

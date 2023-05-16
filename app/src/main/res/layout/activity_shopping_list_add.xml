@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:outlineAmbientShadowColor="#FFFFFF"
+    tools:context=".Clases.ShoppingListActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:title=" "
+        app:titleTextColor="#ffffff">
+
+        <ImageView
+            android:id="@+id/imgbtnBack"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:contentDescription="@string/btnback"
+            android:src="@drawable/ic_arrow_back" />
+
+        <TextView
+            android:id="@+id/tittle_toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <SearchView
+            android:id="@+id/BuscarProductos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="10dp" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <EditText
+        android:id="@+id/etNombreLista"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:autofillHints="@string/nameList"
+        android:ems="10"
+        android:hint="@string/nameList"
+        android:inputType="textPersonName"
+        android:minHeight="48dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/lv_addProduct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginEnd="5dp"
+        android:clickable="true"
+        android:contentDescription="@string/botonAdd"
+        android:src="@drawable/ic_arrow_right" />
+
+
+</LinearLayout>
+
+

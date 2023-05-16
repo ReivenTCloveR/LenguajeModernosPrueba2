@@ -1,0 +1,73 @@
+<resources>
+    <string name="app_name">Inventario</string>
+    <string name="Usuario">Usuario</string>
+    <string name="Contraseña">Contraseña</string>
+    <string name="login">Ingresar</string>
+    <string name="Olvidona">¿Se te olvido la contraseña? clic aquí?</string>
+    <string name="LogoEmpresa">LogoEmpresa</string>
+
+    <string name="Welcome">Bienvenido </string>
+
+    <string name="List">Lista de Compras</string>
+    <string name="Remember">Recordatorios</string>
+    <string name="Interest">Lugares de Interes</string>
+
+
+    <string name="botonList">Boton Lista Compras</string>
+    <string name="botonRemember">Boton Recordatorios</string>
+    <string name="botonInterest">Boton Lugares de Interes</string>
+    <string name="botonAdd">+</string>
+    <string name="btnEdit">Guardiar</string>
+    <string name="btnDelete">Eliminar</string>
+    <string name="btnAddtxt">Añadir</string>
+    <string name="btnSave">Guardar</string>
+    <string name="btnDeshacer">Deshacer</string>
+
+    <string name="tvProduct">Producto</string>
+    <string name="tvPrecio">Precio</string>
+    <string name="tvCantidad">Cantidad</string>
+    <string name="tvUbicacion">Ubicacion</string>
+    <string name="tvTipoPoducto">Tipo de Producto</string>
+
+    <string name="ettProduct">producto</string>
+    <string name="ettPrecio">precio</string>
+    <string name="ettCantidad">cantidad</string>
+    <string name="ettUbicacion">ubicacion</string>
+    <string name="ettTipoPoducto">Tipo de Producto</string>
+
+
+    <!--ListaProducto add-->
+    <string name="inStock">inStock</string>
+    <string name="valor0">0</string>
+
+    <!--Lista de compras-->
+    <string name="nameList">nombre de lista</string>
+    <string name="cantidadProdcutos">Cantidad de productos</string>
+
+
+
+
+
+    <!-- Toolbar-->
+    <string name="btnback">btnback</string>
+    <string name="NewList">Crear Nueva Lista</string>
+    <string name="listProduct">Lista de Productos</string>
+
+    <string name="title_activity_settings">Configuraciones</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails</string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+
+
+</resources>
