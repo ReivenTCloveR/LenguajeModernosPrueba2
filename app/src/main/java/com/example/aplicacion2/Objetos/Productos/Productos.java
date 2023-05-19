@@ -70,7 +70,7 @@ public class Productos implements Serializable {
     }
 
 
-    //TODO esto es para la cantidad
+    //Esto es para la cantidad
 
     public int getClickCount() {
         return mClickCount;

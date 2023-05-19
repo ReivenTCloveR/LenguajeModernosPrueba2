@@ -43,9 +43,7 @@
     <!--Lista de compras-->
     <string name="nameList">nombre de lista</string>
     <string name="cantidadProdcutos">Cantidad de productos</string>
-
-
-
+    <string name="RealizarCompra"> Comprar </string>
 
 
     <!-- Toolbar-->

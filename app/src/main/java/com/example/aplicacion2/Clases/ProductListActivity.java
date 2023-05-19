@@ -22,7 +22,7 @@ import com.example.aplicacion2.Setting.SettingsActivity;
 import com.example.aplicacion2.db.DbHelper;
 import com.example.aplicacion2.db.DbProductos;
 
-public class ListProductActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
+public class ProductListActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
     RecyclerView listaProductos;
     SearchView svBuscar;
@@ -36,7 +36,7 @@ public class ListProductActivity extends AppCompatActivity implements SearchView
 
         listaProductos = findViewById(R.id.lvProducts);
         listaProductos.setLayoutManager(new LinearLayoutManager(this));
-        DbProductos dbProductos = new DbProductos(ListProductActivity.this);
+        DbProductos dbProductos = new DbProductos(ProductListActivity.this);
         adapterProduct = new AdapterProduct(this, dbProductos.mostrarPoduct());
         listaProductos.setAdapter(adapterProduct);
 
@@ -44,7 +44,7 @@ public class ListProductActivity extends AppCompatActivity implements SearchView
         svBuscar.setOnQueryTextListener(this);
 
 
-        DbHelper dbhelper = new DbHelper(ListProductActivity.this);
+        DbHelper dbhelper = new DbHelper(ProductListActivity.this);
         SQLiteDatabase db = dbhelper.getWritableDatabase();
 
 

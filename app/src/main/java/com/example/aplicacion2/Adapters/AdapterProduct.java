@@ -46,6 +46,7 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
         int txtPrecio = list.get(position).getPrecio();
         String txtUbicacion = list.get(position).getUbicacion();
         int txtCantidad = list.get(position).getCantidad();
+        String txtType = list.get(position).getTipo();
 
 
 
@@ -53,6 +54,7 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
         holder.MostrarPrecio.setText(String.valueOf(txtPrecio));
         holder.MostrarUbicacion.setText(txtUbicacion);
         holder.MostrarCantidad.setText(String.valueOf(txtCantidad));
+
     }
 
     //para buscar
@@ -63,9 +65,12 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
             list.clear();
             list.addAll(originallist);
         }else {
-            List<Productos> colleccion =  list.stream()
-                    .filter(i->i.getNombre().toLowerCase().contains(txtBuscar.toLowerCase()))
+            List<Productos> colleccion = list.stream()
+                    .filter(i -> i.getNombre().toLowerCase().contains(txtBuscar.toLowerCase())
+                            || i.getTipo().toLowerCase().contains(txtBuscar.toLowerCase()))
                     .collect(Collectors.toList());
+
+
             list.clear();
             list.addAll(colleccion);
         }
@@ -84,8 +89,8 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
         TextView MostrarProducto, MostrarPrecio, MostrarUbicacion, MostrarCantidad;
         ViewHolder(View itemView){
             super(itemView);
-            MostrarProducto=itemView.findViewById(R.id.NombreLista);
-            MostrarPrecio=itemView.findViewById(R.id.MostrarCantidadProducto);
+            MostrarProducto=itemView.findViewById(R.id.NombreProductoInList);
+            MostrarPrecio=itemView.findViewById(R.id.MostrarCantidadProductoComprar);
             MostrarUbicacion=itemView.findViewById(R.id.MostrarUbicacion);
             MostrarCantidad=itemView.findViewById(R.id.MostrarCantidad);
 

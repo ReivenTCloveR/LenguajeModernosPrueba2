@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" >
+    xmlns:tools="http://schemas.android.com/tools">
 
     <application
         android:allowBackup="true"
@@ -11,8 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Aplicacion2"
         tools:ignore="ExtraText"
-        tools:targetApi="31" >
-
+        tools:targetApi="31">
+        <activity
+            android:name=".Objetos.ListaProducto.ShoppingListViewActivity"
+            android:exported="false" />
         <activity
             android:name=".Setting.SettingsActivity"
             android:exported="false"
@@ -24,36 +26,35 @@
         <activity
             android:name=".Objetos.Productos.ProductoAddActivity"
             android:exported="false"
-            android:parentActivityName=".Clases.ListProductActivity" >
+            android:parentActivityName=".Clases.ProductListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Clases.ListProductActivity" />
+                android:value=".Clases.ProductListActivity" />
         </activity>
-
         <activity
             android:name=".Objetos.Productos.ProductoViewActivity"
-            android:exported="false" >
+            android:exported="false">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Clases.ListProductActivity" />
+                android:value=".Clases.ProductListActivity" />
         </activity>
         <activity
             android:name=".Clases.InterestActivity"
-            android:exported="false" >
+            android:exported="false">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainUsuarioActivity" />
         </activity>
         <activity
             android:name=".Clases.RememberActivity"
-            android:exported="false" >
+            android:exported="false">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainUsuarioActivity" />
         </activity>
         <activity
-            android:name=".Clases.ListProductActivity"
-            android:exported="false" >
+            android:name=".Clases.ProductListActivity"
+            android:exported="false">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainUsuarioActivity" />
@@ -67,7 +68,7 @@
             android:exported="false" />
         <activity
             android:name=".LogActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

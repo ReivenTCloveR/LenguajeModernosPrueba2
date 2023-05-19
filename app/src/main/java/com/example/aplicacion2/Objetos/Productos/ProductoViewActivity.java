@@ -14,7 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.example.aplicacion2.Clases.ListProductActivity;
+import com.example.aplicacion2.Clases.ProductListActivity;
 import com.example.aplicacion2.R;
 import com.example.aplicacion2.db.DbProductos;
 
@@ -151,7 +151,7 @@ public class ProductoViewActivity extends AppCompatActivity {
     }
 
     private void lista(){
-        Intent intent = new Intent(this, ListProductActivity.class);
+        Intent intent = new Intent(this, ProductListActivity.class);
         startActivity(intent);
     }
 

@@ -1,6 +1,7 @@
 package com.example.aplicacion2.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.aplicacion2.Objetos.ListaProducto.ShoppingList;
 import com.example.aplicacion2.R;
+import com.example.aplicacion2.Objetos.ListaProducto.ShoppingListViewActivity;
 
 import java.util.ArrayList;
 
@@ -21,7 +23,7 @@ public class AdapterShopping extends RecyclerView.Adapter<AdapterShopping.ViewHo
 
     public AdapterShopping(Context context, ArrayList<ShoppingList> list) {
         this.context = context;
-        this.list = list;
+        AdapterShopping.list = list;
         originallist = new ArrayList<>();
         originallist.addAll(list);
     }
@@ -29,30 +31,33 @@ public class AdapterShopping extends RecyclerView.Adapter<AdapterShopping.ViewHo
 
     @NonNull
     @Override
-    public AdapterShopping.ViewHolderShopping onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolderShopping onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.desing_lvshopping ,parent,false);
-        return new AdapterShopping.ViewHolderShopping(view);
+        return new ViewHolderShopping(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AdapterShopping.ViewHolderShopping holder, int position) {
-        String txtProducto = list.get(position).getNombre_list();
+    public void onBindViewHolder(@NonNull ViewHolderShopping holder, int position) {
+        ShoppingList NombreLista = list.get(position);
+        holder.NombreLista.setText(NombreLista.getNombre_list());
     }
 
     @Override
     public int getItemCount() {return list.size();}
 
     public static class ViewHolderShopping extends RecyclerView.ViewHolder{
-        TextView MostrarNombreList, MostrarCantidadProductos;
-        ViewHolderShopping(View itemView){
+        TextView NombreLista;
+        ViewHolderShopping(View itemView) {
             super(itemView);
-            MostrarNombreList=itemView.findViewById(R.id.NombreLista);
-            MostrarCantidadProductos=itemView.findViewById(R.id.MostrarCantidadProducto);
+            NombreLista = itemView.findViewById(R.id.NombreProductoInList);
 
-            itemView.setOnClickListener(view -> {  /*aqui tengo que enviar el titulo nada mas */   });
-
+            itemView.setOnClickListener(view -> {
+                Context context = view.getContext();
+                Intent intent = new Intent(context, ShoppingListViewActivity.class);
+                intent.putExtra("ID_List", list.get(getAdapterPosition()).getId_list());
+                context.startActivities(new Intent[]{intent});
+            });
         }
-
     }
 
 

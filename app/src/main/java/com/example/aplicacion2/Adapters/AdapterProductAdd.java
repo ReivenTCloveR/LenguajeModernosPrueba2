@@ -59,18 +59,16 @@ public class AdapterProductAdd extends RecyclerView.Adapter<AdapterProductAdd.Vi
 
         Productos producto = list.get(position);
         holder.MostrarProducto.setText(producto.getNombre());
+        int InStock = list.get(position).getCantidad();
+        holder.InStock.setText(String.valueOf(producto.getCantidad()));
         int id = producto.getId();
         holder.itemView.setOnClickListener(view -> {
             if (mListener != null) {
                 mListener.onItemClick(producto);
             }
-           /* if (mListener != null) {
-                mListener.onItemClick(producto);
-            }*/
         });
 
     }
-
 
     @Override
     public int getItemCount() {
@@ -80,32 +78,31 @@ public class AdapterProductAdd extends RecyclerView.Adapter<AdapterProductAdd.Vi
 
     public static class ViewHolderAddProduct extends RecyclerView.ViewHolder {
         TextView MostrarProducto;
-        EditText cantidadComprarEditText;
+        EditText InStock;
 
         ViewHolderAddProduct(View itemView) {
             super(itemView);
-            MostrarProducto = itemView.findViewById(R.id.NombreLista);
-            cantidadComprarEditText = itemView.findViewById(R.id.etCantidadComprar);
+            MostrarProducto = itemView.findViewById(R.id.NombreProductoInList);
+            InStock = itemView.findViewById(R.id.etCantidadComprar);
 
 
         }
     }
 
 
-
-
-
-
     @SuppressLint("NotifyDataSetChanged")
-    public void filtro (String txtBuscar){
+    public void filtroProductAdd (String txtBuscar){
         int longitud = txtBuscar.length();
         if ( longitud== 0){
             list.clear();
             list.addAll(originallist);
         }else {
-            List<Productos> colleccion =  list.stream()
-                    .filter(i->i.getTipo().toLowerCase().contains(txtBuscar.toLowerCase()))
+            List<Productos> colleccion = list.stream()
+                    .filter(i -> i.getNombre().toLowerCase().contains(txtBuscar.toLowerCase())
+                            || i.getTipo().toLowerCase().contains(txtBuscar.toLowerCase()))
                     .collect(Collectors.toList());
+
+
             list.clear();
             list.addAll(colleccion);
         }

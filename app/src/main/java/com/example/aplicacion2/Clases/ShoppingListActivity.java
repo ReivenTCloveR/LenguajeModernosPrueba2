@@ -2,42 +2,50 @@ package com.example.aplicacion2.Clases;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.aplicacion2.Adapters.AdapterProduct;
+import com.example.aplicacion2.Adapters.AdapterShopping;
 import com.example.aplicacion2.Objetos.ListaProducto.ShoppingListAddActivity;
 import com.example.aplicacion2.R;
 import com.example.aplicacion2.Setting.SettingsActivity;
+import com.example.aplicacion2.db.DbHelper;
 import com.example.aplicacion2.db.DbTablaProducto;
 
 public class ShoppingListActivity extends AppCompatActivity {
 
     ImageView btnBack;
     RecyclerView listaCompras;
-    AdapterProduct adapterShopping;
+    AdapterShopping adapterShopping;
 
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shopping_list);
 
-        //     listaCompras = findViewById(R.id.lvList);
-        //   listaCompras.setLayoutManager(new LinearLayoutManager(this));
+        listaCompras = findViewById(R.id.lvListaCompra);
+        listaCompras.setLayoutManager(new LinearLayoutManager(this));
 
         //Aqui va lo de la base de datos
+        DbTablaProducto dbShopping = new DbTablaProducto(ShoppingListActivity.this);
 
-        //adapterShopping = new AdapterProduct(this, dbShopping.mostrarPoduct());
-        //listaProductos.setAdapter(adapterProduct);
+        adapterShopping = new AdapterShopping(this, dbShopping.mostrarListaCompra());
+        listaCompras.setAdapter(adapterShopping);
 
+
+        DbHelper dbhelper = new DbHelper(ShoppingListActivity.this);
+        SQLiteDatabase db = dbhelper.getWritableDatabase();
 
 
 
@@ -49,6 +57,22 @@ public class ShoppingListActivity extends AppCompatActivity {
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //interfaz
     void initiToolbar(){
         btnBack = findViewById(R.id.imgbtnBack);
     }
@@ -75,12 +99,12 @@ public class ShoppingListActivity extends AppCompatActivity {
                 Intent ir2 = new Intent(this, ShoppingListAddActivity.class);
                 DbTablaProducto dbShopping = new DbTablaProducto(ShoppingListActivity.this);
                 int ID_last =dbShopping.obtenerUltimaIdListaProductos();
-                ir2.putExtra("ID", ID_last);
+                ir2.putExtra("ID_last", ID_last);
                 startActivity(ir2);
                 break;
             case R.id.PrudctList:
                 Toast.makeText(this, "Lista de Productos", Toast.LENGTH_SHORT).show();
-                Intent ir3 = new Intent(this, ListProductActivity.class);
+                Intent ir3 = new Intent(this, ProductListActivity.class);
                 startActivity(ir3);
                 break;
 

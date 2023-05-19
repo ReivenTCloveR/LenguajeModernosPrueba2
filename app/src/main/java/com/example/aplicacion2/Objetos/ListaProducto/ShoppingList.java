@@ -7,15 +7,25 @@ public class ShoppingList implements Serializable {
 
     private int id_list;
     private String nombre_list;
+    private int id_producto;
     private int cantidad_productos;
 
 
     public ShoppingList(){}
 
-    public ShoppingList(int id_list, String nombre_list, int cantidad_productos) {
+    public ShoppingList(int id_list, String nombre_list, int cantidad_productos,  int id_producto) {
         this.id_list = id_list;
         this.nombre_list = nombre_list;
+        this.id_producto = id_producto;
         this.cantidad_productos = cantidad_productos;
+    }
+
+    public int getId_producto() {
+        return id_producto;
+    }
+
+    public void setId_producto(int id_producto) {
+        this.id_producto = id_producto;
     }
 
     public int getId_list() {

@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.aplicacion2.Clases.InterestActivity;
-import com.example.aplicacion2.Clases.ListProductActivity;
 import com.example.aplicacion2.Clases.RememberActivity;
 import com.example.aplicacion2.Clases.ShoppingListActivity;
 

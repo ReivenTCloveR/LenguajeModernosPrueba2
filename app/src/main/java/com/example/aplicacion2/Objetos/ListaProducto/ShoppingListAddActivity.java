@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.example.aplicacion2.Adapters.AdapterProductAdd;
 import com.example.aplicacion2.Clases.ShoppingListActivity;
@@ -72,12 +73,28 @@ public class ShoppingListAddActivity extends AppCompatActivity implements Search
 
 
         //Llamar Metodos
+        int id ;
+        //Ver producto
+        if (savedInstanceState == null) {
+            Bundle extra = getIntent().getExtras();
+            if (extra == null) {
+                id = Integer.parseInt(null);
+            } else {
+                id = extra.getInt("ID_last");
+            }
+        } else {
+            id = (int) savedInstanceState.getSerializable("ID_last");
+        }
+
+
+
 
 
         //EditText Nombre de la Tabla
         etNombreLista = findViewById(R.id.etNombreLista);
+        //int idLista =
 
-
+        int finalId = id;
         addProductos.setOnClickListener(v -> {
             DbTablaProducto dbTablaProducto = new DbTablaProducto(ShoppingListAddActivity.this);
             String nombreLista = etNombreLista.getText().toString();
@@ -87,12 +104,13 @@ public class ShoppingListAddActivity extends AppCompatActivity implements Search
                 int cantidad = entry.getValue();
 
                 try {
-                    ID = dbTablaProducto.insertarTablaProducto(1, nombreLista, idProducto, cantidad );
+                    ID = dbTablaProducto.insertarTablaProducto(finalId, nombreLista, idProducto, cantidad );
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
             }
             mCantidadClics.clear();
+            etNombreLista.setText("");
         });
 
     }
@@ -105,6 +123,7 @@ public class ShoppingListAddActivity extends AppCompatActivity implements Search
         int contador = producto.getClickCount();
         mCantidadClics.put(id, contador);
         // Notifica al adaptador que los datos han cambiado
+        Toast.makeText(this, id + " cantidad " + contador, Toast.LENGTH_SHORT).show();
         adapterProductAdd.notifyDataSetChanged();
     }
 
@@ -113,7 +132,7 @@ public class ShoppingListAddActivity extends AppCompatActivity implements Search
 
     @Override
     public boolean onQueryTextChange(String txtbusca) {
-        adapterProductAdd.filtro(txtbusca);
+        adapterProductAdd.filtroProductAdd(txtbusca);
         return false;
     }
 

@@ -10,12 +10,14 @@ import android.database.sqlite.SQLiteDatabase;
 import androidx.annotation.Nullable;
 
 import com.example.aplicacion2.Objetos.ListaProducto.ShoppingList;
+import com.example.aplicacion2.Objetos.Productos.Productos;
 
 import java.util.ArrayList;
 
 public class DbTablaProducto extends DbHelper{
     Context context;
     SQLiteDatabase db;
+
     public DbTablaProducto(@Nullable Context context) {
         super(context);
         this.context = context;
@@ -57,18 +59,49 @@ public class DbTablaProducto extends DbHelper{
         return ultimaId + 1;
     }
 
-/*
-    public void insertTablaProducto(int idLista, String nombreLista, int idProducto, int cantidadProducto) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put("id_lista_producto", idLista);
-        values.put("nombreLista", nombreLista);
-        values.put("id_producto", idProducto);
-        values.put("cantidad_producto", cantidadProducto);
-        db.insert(TABLE_LIST_PRODUCTOS, null, values);
-        db.close();
+
+    @SuppressLint("Recycle")
+    public ArrayList<ShoppingList> mostrarListaCompra() {
+        DbHelper dbhelper = new DbHelper(context);
+        this.db = dbhelper.getWritableDatabase();
+
+        ArrayList<ShoppingList> listaProductosPorIdLista = new ArrayList<>();
+        ShoppingList shoppingList;
+        Cursor cursorProductosPorIdLista;
+
+        cursorProductosPorIdLista = db.rawQuery("SELECT id_lista_producto, nombreLista FROM " + TABLE_LIST_PRODUCTOS + " GROUP BY id_lista_producto", null);
+
+        if (cursorProductosPorIdLista.moveToFirst()) {
+            do {
+                shoppingList = new ShoppingList();
+                shoppingList.setId_producto(cursorProductosPorIdLista.getInt(0));
+                shoppingList.setNombre_list(cursorProductosPorIdLista.getString(1));
+                listaProductosPorIdLista.add(shoppingList);
+            } while (cursorProductosPorIdLista.moveToNext());
+        }
+        return listaProductosPorIdLista;
     }
-*/
+
+
+    public ShoppingList verProductosInList(int id) {
+
+
+        DbHelper dbhelper = new DbHelper(context);
+        this.db = dbhelper.getWritableDatabase();
+
+        ShoppingList Lista = null;
+        Cursor cursorProductos;
+
+        cursorProductos = db.rawQuery("SELECT id_lista_producto, nombreLista FROM " + TABLE_LIST_PRODUCTOS + " WHERE id_producto = '" + id + "' LIMIT 1", null);
+
+        if (cursorProductos.moveToFirst()) {
+            Lista = new ShoppingList();
+            Lista.setId_list(cursorProductos.getInt(0));
+            Lista.setNombre_list(cursorProductos.getString(1));
+        }
+        cursorProductos.close();
+        return Lista;
+    }
 
 
 
@@ -84,7 +117,7 @@ public class DbTablaProducto extends DbHelper{
 
     //mostrar
     @SuppressLint("Recycle")
-    public ArrayList<ShoppingList> mostrarTablaProducto(){
+    public ArrayList<ShoppingList> mostrarProductoDeLaTabla(){
 
 
         DbHelper dbhelper = new DbHelper(context);
@@ -99,9 +132,8 @@ public class DbTablaProducto extends DbHelper{
         if(cursorListaProducto.moveToFirst()){
             do{
                 shoppingList = new ShoppingList();
-                shoppingList.setId_list(cursorListaProducto.getInt(0));
-                shoppingList.setNombre_list(cursorListaProducto.getString(1));
-
+                shoppingList.setId_producto(cursorListaProducto.getInt(3));
+                shoppingList.setCantidad_productos(cursorListaProducto.getInt(4));
                 listshoppingList.add(shoppingList);
             }while (cursorListaProducto.moveToNext());
         }
